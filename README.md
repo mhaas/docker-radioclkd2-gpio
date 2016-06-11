@@ -90,3 +90,6 @@ See `run.sh`.
 Note that I'm not passing any ENV variables there as the defaults in the Dockerfile
 match my setup.
 
+## TODO ##
+
+- Drop privileges (user, linux capabilities)
