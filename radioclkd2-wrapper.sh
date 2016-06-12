@@ -25,8 +25,7 @@ echo 1 > /sys/class/gpio/gpio${GPIO_PON}/value
 sleep 1
 echo 0 > /sys/class/gpio/gpio${GPIO_PON}/value
 
-# for radioclkd2
-echo "in" > /sys/class/gpio/gpio${GPIO_ATA}/direction
+echo "in" > /sys/class/gpio/gpio${GPIO_DATA}/direction
 # Make sure to use a GPIO pin with interrupt support.
 echo "both" > /sys/class/gpio/gpio${GPIO_DATA}/edge
 
@@ -36,10 +35,7 @@ if [[ "$GPIO_DATA_INVERT" == "1" || "$GPIO_DATA_INVERT" == "true" ]]; then
 fi
 
 if [[ "$DEBUG" == "1" || "$DEBUG" == "true" ]]; then
-    DEBUG_FLAG="-v"
+    DEBUG_FLAG="-v -d"
 fi
 
-CMD="radioclkd2 -s gpio ${DEBUG_FLAG} -d /sys/class/gpio/gpio${GPIO_DATA}/value${INVERT_FLAG} || exit 1"
-echo "Running: $CMD"
-
-$CMD
+radioclkd2 -s gpio ${DEBUG_FLAG} /sys/class/gpio/gpio${GPIO_DATA}/value${INVERT_FLAG} || exit 1
