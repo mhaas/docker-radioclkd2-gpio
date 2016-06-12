@@ -10,5 +10,3 @@ USER root
 RUN cd /tmp/radioclkd2 && make install
 COPY radioclkd2-wrapper.sh /usr/local/bin/radioclkd2-wrapper.sh
 CMD ["/usr/local/bin/radioclkd2-wrapper.sh"]
-
-

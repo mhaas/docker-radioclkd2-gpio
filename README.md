@@ -42,10 +42,10 @@ are listed in third column inside the schematic.
 
 Pin mapping from DCF1 to the breakout connected to GPIO-3:
 
-PON  -> 27 (PI9)
-DATA -> 29 (PI10)
-GND  -> 2 (GND)
-VCC  -> 3 (3.3V)
+- PON  -> 27 (PI9)
+- DATA -> 29 (PI10)
+- GND  -> 2 (GND)
+- VCC  -> 3 (3.3V)
 
 Do not use 5V for the DCF1! It will appear to work, but the data won't be decoded.
 
@@ -59,10 +59,10 @@ code in the script.
 
 The docker image supports three environment variables:
 
-GPIO\_PON: the GPIO pin where the power-on (PON) pin is connected
-GPIO\_DATA: the GPIO pin where the DATA pin is connected.
-GPIO\_DATA\_INVERT: flag indicating the ':-DCD' should be appended to radioclkd2 device string. Needs to be 'true' for the DCF1.
-DEBUG: flag enabling radioclkd2 verbose output, disables SHM for NTPD!
+- GPIO\_PON: the GPIO pin where the power-on (PON) pin is connected
+- GPIO\_DATA: the GPIO pin where the DATA pin is connected.
+- GPIO\_DATA\_INVERT: flag indicating the ':-DCD' should be appended to radioclkd2 device string. Needs to be 'true' for the DCF1.
+- DEBUG: flag enabling radioclkd2 verbose output and non-daemon mode, disables SHM for NTPD!
 
 ## Low-pass filter / radioclkd2 patches ##
 
@@ -93,3 +93,4 @@ match my setup.
 ## TODO ##
 
 - Drop privileges (user, linux capabilities)
+- Investigate PPS (kernel level, ntp level?)
